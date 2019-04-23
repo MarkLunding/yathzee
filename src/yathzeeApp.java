@@ -3,6 +3,15 @@ import java.util.Scanner;
 public class yathzeeApp {
 
 	public static void main(String[] args) {
+		YahtzeeSpel yahtzee = new YahtzeeSpel();
+		yahtzee.spelen();
+	}
+
+}
+
+class YahtzeeSpel {
+
+	void spelen(){
 		Scanner scanner = new Scanner(System.in);
 		boolean playOn = true;
 		while (playOn) {
@@ -21,7 +30,4 @@ public class yathzeeApp {
 		System.out.println("einde");
 		scanner.close();
 	}
-
-
-
 }
