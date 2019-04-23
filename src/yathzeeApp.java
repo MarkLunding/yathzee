@@ -1,3 +1,4 @@
+import java.util.Random;
 import java.util.Scanner;
 
 public class yathzeeApp {
@@ -11,8 +12,9 @@ public class yathzeeApp {
 
 class YahtzeeSpel {
 
-	void spelen(){
+	void spelen() {
 		Scanner scanner = new Scanner(System.in);
+
 		boolean playOn = true;
 		while (playOn) {
 			System.out.println("Geef een letter op: q = Quit");
@@ -24,10 +26,17 @@ class YahtzeeSpel {
 				break;
 
 			default:
+				int dobbel1 = werpen();
+				System.out.println(dobbel1);
 				break;
 			}
 		}
 		System.out.println("einde");
 		scanner.close();
+	}
+
+	int werpen() {
+		Random random = new Random();
+		return random.nextInt(6) + 1;
 	}
 }
