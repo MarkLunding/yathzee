@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -11,10 +12,16 @@ public class yathzeeApp {
 }
 
 class YahtzeeSpel {
+	ArrayList<Dobbelsteen> dobbelstenen = new ArrayList<>();
+
+	YahtzeeSpel() {
+		for (int i = 0; i < 5; i++) {
+			this.dobbelstenen.add(new Dobbelsteen());
+		}
+	}
 
 	void spelen() {
 		Scanner scanner = new Scanner(System.in);
-
 		boolean playOn = true;
 		while (playOn) {
 			System.out.println("Geef een letter op: q = Quit");
@@ -24,19 +31,29 @@ class YahtzeeSpel {
 			case "q":
 				playOn = false;
 				break;
-
 			default:
-				int dobbel1 = werpen();
-				System.out.println(dobbel1);
+				System.out.print("| ");
+				for (Dobbelsteen dobbelsteen : dobbelstenen) {
+					dobbelsteen.waarde = dobbelsteen.werpen();
+					System.out.print(dobbelsteen.waarde + " | ");
+				}
+				System.out.println();
 				break;
 			}
 		}
 		System.out.println("einde");
+
 		scanner.close();
 	}
+
+}
+
+class Dobbelsteen {
+	int waarde;
 
 	int werpen() {
 		Random random = new Random();
 		return random.nextInt(6) + 1;
 	}
+
 }
