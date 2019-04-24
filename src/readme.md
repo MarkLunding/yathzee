@@ -7,15 +7,22 @@ Onze weekopdracht zal zich richten op het programmeren van de basis-activiteit v
 
 De GUI ziet er als volgt uit:
 Het Toont:
+
 WORP1 
+
 1 2 3 4 5
-6 2 3 3 4
+
+6 2 3 3 4 
+
 Welke posities wilt u vasthouden? 0 voor geen anders bv 124
 INVOER: 34 ENTER
 
 WORP2
+
 1 2 3 4 5
+
 3 6 3 3 2
+
 Druk Enter voor het werpen van een nieuwe worp. Druk q voor het stoppen met het spel.
 
 Volgorde van doelstellingen:

@@ -13,6 +13,7 @@ public class yathzeeApp {
 
 class YahtzeeSpel {
 	ArrayList<Dobbelsteen> dobbelstenen = new ArrayList<>();
+	int [] blokkeer = {0,0,0,0,0};
 
 	YahtzeeSpel() {
 		for (int i = 0; i < 5; i++) {
@@ -38,12 +39,34 @@ class YahtzeeSpel {
 					System.out.print(dobbelsteen.waarde + " | ");
 				}
 				System.out.println();
+				vasthouden();
 				break;
 			}
+			
 		}
 		System.out.println("einde");
 
 		scanner.close();
+	}
+	void vasthouden () {
+//		ArrayList<Integer> teBlokkeren = new ArrayList<>();
+		Scanner blokscan = new Scanner(System.in);
+		System.out.println("Welke posities wilt u vasthouden? 0 voor geen anders bv 124"); 
+		String invoer = blokscan.nextLine();
+		boolean juisteInvoer = true;
+		for (int i = 0; i <invoer.length(); i++){
+			int getal = Character.getNumericValue(invoer.charAt(i));
+			System.out.println(getal);
+			if(getal>0 && getal<6) {
+				blokkeer[getal-1] = 1;
+			} else {
+				System.out.println("De waarde " + getal + "is geen geldige postie. Voer waardes in van 1 t/m 5:");
+				juisteInvoer = false;
+			}
+		}
+		if (!juisteInvoer) {
+			this.vasthouden();
+		}
 	}
 
 }
