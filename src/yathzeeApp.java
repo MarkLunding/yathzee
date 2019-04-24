@@ -23,6 +23,7 @@ class YahtzeeSpel {
 
 	void spelen() {
 		Scanner scanner = new Scanner(System.in);
+		Speler speler = new Speler();
 		boolean playOn = true;
 		while (playOn) {
 			System.out.println("Druk op <ENTER> voor een worp. Stop het spel met q (van Quit)");
@@ -47,7 +48,7 @@ class YahtzeeSpel {
 					x++;
 				}
 				worp.toonWorp();
-
+				speler.worpGeschiedenis.add(worp);
 				vasthouden();
 				break;
 			default:
@@ -118,4 +119,8 @@ class Worp {
 		System.out.println();
 	}
 
+}
+
+class Speler {
+	ArrayList<Worp> worpGeschiedenis = new ArrayList<>();
 }
