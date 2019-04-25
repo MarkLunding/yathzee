@@ -32,7 +32,6 @@ public class YahtzeeSpel {
 				invoer = invoer.toLowerCase();
 				switch (invoer) {
 				case "q":
-				case "Q":
 					playOn = false;
 					break;
 				case "":
