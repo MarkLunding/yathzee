@@ -13,9 +13,17 @@ public class YahtzeeSpel {
 			this.dobbelstenen.add(new Dobbelsteen());
 		}
 		int aantalSpelers = welkomBij();
+		Scanner naamScanner = new Scanner(System.in);
 		for (int i = 0; i < aantalSpelers; i++) {
 			this.Spelers.add(new Speler());
 		}
+		int teller = 1;
+		for (Speler speler : Spelers) {
+			System.out.println("Geef de naam van speler: " + teller);
+			String naam = naamScanner.nextLine();
+			speler.naam = naam.toUpperCase();
+		}
+
 	}
 
 	void spelen() {
@@ -24,7 +32,7 @@ public class YahtzeeSpel {
 		int spelerNr = 1;
 		for (Speler speler : Spelers) {
 			resetVasthouden();
-			speler.toonSpelerStart(spelerNr);
+			speler.toonSpelerStart(speler.naam);
 			int worpNr = 1;
 			while (playOn) {
 				System.out.println("Druk op <ENTER> voor een worp. Stop het spel met q (van Stoppen ;-))");
@@ -59,8 +67,7 @@ public class YahtzeeSpel {
 
 			}
 			playOn = true;
-
-			speler.toonSpelerEinde(spelerNr);
+			speler.toonSpelerEinde(speler.naam);
 			spelerNr++;
 		}
 		System.out.println("Einde van dit spel.");
@@ -93,7 +100,7 @@ public class YahtzeeSpel {
 			}
 		}
 		return -1; // de methode komt hier nooit, maar eclipse vind dat deze er toch moet staan,
-				   // van daar de waarde -1
+					// van daar de waarde -1
 
 	}
 
