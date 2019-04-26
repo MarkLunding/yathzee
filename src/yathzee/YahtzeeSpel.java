@@ -27,6 +27,7 @@ public class YahtzeeSpel {
 			System.out.println("Geef de naam van speler: " + teller);
 			String naam = naamScanner.nextLine();
 			speler.naam = naam.toUpperCase();
+			teller++;
 		}
 
 	}
