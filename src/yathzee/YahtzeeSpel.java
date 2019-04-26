@@ -12,6 +12,11 @@ public class YahtzeeSpel {
 		for (int i = 0; i < 5; i++) {
 			this.dobbelstenen.add(new Dobbelsteen());
 		}
+		
+		
+	}
+	
+	private void initGame() {
 		int aantalSpelers = welkomBij();
 		Scanner naamScanner = new Scanner(System.in);
 		for (int i = 0; i < aantalSpelers; i++) {
@@ -27,6 +32,7 @@ public class YahtzeeSpel {
 	}
 
 	void spelen() {
+		initGame();
 		Scanner scanner = new Scanner(System.in);
 		boolean playOn = true;
 		int spelerNr = 1;
@@ -74,7 +80,7 @@ public class YahtzeeSpel {
 
 	}
 
-	int welkomBij() {
+	private int welkomBij() {
 		boolean geenGeldigeInvoer = true;
 		Scanner spelers = new Scanner(System.in);
 		System.out.println("Welkom bij Yahtzee");
@@ -104,7 +110,7 @@ public class YahtzeeSpel {
 
 	}
 
-	void vasthouden() {
+	private void vasthouden() {
 		resetVasthouden();
 		Scanner blokscan = new Scanner(System.in);
 		System.out.println("Welke posities wilt u vasthouden? 0 voor geen anders bv 124");
@@ -126,7 +132,7 @@ public class YahtzeeSpel {
 
 	}
 
-	void resetVasthouden() {
+	private void resetVasthouden() {
 		for (int i = 0; i < blokkeer.length; i++) {
 			blokkeer[i] = 0;
 		}
